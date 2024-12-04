@@ -5,30 +5,21 @@ name: CI
 # Controls when the workflow will run
 on: workflow_dispatch
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  job1:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: job1
+        run: echo "this is job1"
+        
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: job2 multi 
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          date
+          echo "this is job2 one"
+          echo "this is job2 two"
 
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run a one-line script
-        run: echo "this is build2"
+
   
