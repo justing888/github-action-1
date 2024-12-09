@@ -10,11 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: job1
-        run: echo "this is job1"
+        run: | 
+          echo "this is job1"
+          date1
+        
         
 
   job2:
     runs-on: ubuntu-latest
+    if: ${{ success() }}
+    needs: [job1]
     steps:
       - name: job2 multi 
         run: |
